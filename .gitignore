@@ -16,6 +16,8 @@ dataset/
 .wget-hsts
 .bash_history
 ._dataset
+workspace
+.gitconfig
 
 ### Linux ###
 *~
