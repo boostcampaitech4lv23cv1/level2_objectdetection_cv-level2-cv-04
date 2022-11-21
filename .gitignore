@@ -10,12 +10,13 @@ sample_submission
 .jupyter
 .local
 .vscode-server
-dataset/
+dataset
 .profile
 .python_history
 .wget-hsts
 .bash_history
 ._dataset
+workspace
 
 ### Linux ###
 *~
