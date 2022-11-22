@@ -1,6 +1,11 @@
 # dataset settings
 ## make competition dataset
 
+## 수정내용
+# 1. dataset root 수정
+# 2. test_pipeline에 존재하는 augmentation 삭제
+# 3. img_scale 전부 512,512 수정
+
 dataset_type = 'CocoDataset'
 
 root='/opt/level2_objectdetection_cv-level2-cv-04/dataset/' ## abs path
@@ -23,7 +28,7 @@ img_norm_cfg = dict(
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
-    dict(type='Resize', img_scale=(512, 512), keep_ratio=True),
+    dict(type='Resize', img_scale=(1024, 1024), keep_ratio=True), # 시간 단축을 위해 512, 512로 이미지 축소
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
@@ -31,11 +36,12 @@ train_pipeline = [
     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels']),
 ]
 
+
 test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(1024, 1024),
+        img_scale=(1024, 1024), # train과 test의 size를 동일하게 셋팅
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
