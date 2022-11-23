@@ -1,6 +1,7 @@
 #Streamlit Visualization
 ##Ground Truch 가 존재하는 파일에 대한 inference 결과를 시각화합니다.
 
+![preview](./images/preview.png)
 ###how to start
 ```
 pip install streamlit
