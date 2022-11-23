@@ -63,7 +63,7 @@ def IoU(box1, box2):
     return iou
 
 def main():
-    st.title("Mask Classification Model")
+    st.title("Compare inferenced file with ground truth")
     
     
     data = pd.read_csv(submission_file_dir, index_col=False)
