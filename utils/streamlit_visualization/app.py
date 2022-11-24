@@ -12,11 +12,11 @@ from copy import deepcopy
 st.set_page_config(layout="wide")
 
 
-###
+### Modify these lines
 submission_file_dir = '/opt/ml/JDP/baseline/mmdetection/workspace/workspace/work_dirs/submission_latest.csv'
 gt_json_file_dir = '/opt/ml/dataset/train.json'
 dataset_path = '/opt/ml/dataset/'
-###
+### Until here
 
 
 
@@ -87,13 +87,12 @@ def main():
     #confidence threshold 설정
     conf_threshold = st.slider('다음 값 이상의 Confidence score 를 가지는 박스만 표시:', 0.0, 100.0, 50.0)
     th_preds = preds[preds[:, 1] >= conf_threshold/100.0]
-    # print(th_preds)
     
     img_path = os.path.join(dataset_path, gt_data['images'][image_index]['file_name'])
     img = cv.imread(img_path)
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     infered_img = deepcopy(img)
-    print(target_image_id)
+
     ##gt 이미지
     gt_bboxes = []
     for anns in gt_data['annotations']:
