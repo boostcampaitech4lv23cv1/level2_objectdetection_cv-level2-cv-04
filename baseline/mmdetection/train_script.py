@@ -47,8 +47,8 @@ def main():
     parser.add_argument('--root_dir', type=str, default="/opt/ml/dataset/")  #dataset 폴더 경로
     parser.add_argument('--ann_dir', type=str, default="/opt/ml/folded_anns/")  #train/val json 파일이 존재하는 위치
     parser.add_argument('--work_dir', type=str, default='my_experiment')  #model.pth, log 등이 저장될 폴더 이름
-    parser.add_argument('--wandb_project_name', type=str)  #wandb 프로젝트 이름
-    parser.add_argument('--wandb_experiment_name', type=str, default=f'{now.year}-{now.month}-{now.day}, {now.hour}:{now.minute}')  #wandb 실험 이름
+    parser.add_argument('--wdb_project', type=str)  #wandb 프로젝트 이름
+    parser.add_argument('--wdb_exp', type=str, default=f'{now.year}-{now.month}-{now.day}, {now.hour}:{now.minute}')  #wandb 실험 이름
     args = parser.parse_args()
 
     cfg = Config.fromfile(args.config_path)
@@ -56,9 +56,9 @@ def main():
     cfg.log_config.hooks = [
     dict(type='TextLoggerHook'),
     dict(type='MMDetWandbHook',
-         init_kwargs={"project": args.wandb_project_name, # 저장할 프로젝트이름
+         init_kwargs={"project": args.wdb_project, # 저장할 프로젝트이름
                       "entity" : "boostcamp_aitech4_jdp", # 현재 팀 공통으로 쓰고있는 entity
-                      "name": f"{args.wandb_name}"}, # 실험 이름
+                      "name": f"{args.wdb_exp}"}, # 실험 이름
          interval=10,
          log_checkpoint=True,
          log_checkpoint_metadata=True,
@@ -87,7 +87,7 @@ def main():
     seed_everything(args.seed) # 재생산을 위해서 모든 시드를 고정
 
     cfg.gpu_ids = [0]
-    cfg.work_dir = './work_dirs/' + args.work_dir
+    cfg.work_dir = './workspace/work_dirs/' + args.work_dir
 
     cfg.model.roi_head.bbox_head.num_classes = 10 # 모델의 헤드 개수변경
     
