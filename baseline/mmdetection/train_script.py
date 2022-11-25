@@ -34,7 +34,7 @@ def seed_everything(seed: int):
     torch.backends.cudnn.benchmark = True
 
 def main():
-    boolean_parse = lambda x: True if x in ('True', 'true', 'T', 't', '1') else False
+    boolean_parse = lambda x: True if x in (None, 'True', 'true', 'T', 't', '1') else False
     now = datetime.now(timezone('Asia/Seoul'))
     parser = argparse.ArgumentParser(description='basic Argparse')
     parser.add_argument('--seed', type=int, default=42, help='시드')
