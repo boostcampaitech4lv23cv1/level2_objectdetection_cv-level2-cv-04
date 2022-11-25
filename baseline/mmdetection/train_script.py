@@ -92,11 +92,10 @@ def main():
 
     cfg.model.roi_head.bbox_head.num_classes = 10 # 모델의 헤드 개수변경
     
-    if cfg.grad_clip:
+    if args.grad_clip:
         cfg.optimizer_config.grad_clip = dict(max_norm=35, norm_type=2) # gradient clipping(트레이닝 기법)
     else:
-        if 'grad_clip' in cfg.optimizer_config.keys():
-            del cfg.optimizer['grad_clip']
+        cfg.optimizer_config.grad_clip = None
             
     cfg.checkpoint_config = dict(max_keep_ckpts=3, interval=1) # 저장주기를 1로 하되 가장 높은 3개만 남긴다
     cfg.device = get_device()
