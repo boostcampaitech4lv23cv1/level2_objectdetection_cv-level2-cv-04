@@ -34,20 +34,21 @@ def seed_everything(seed: int):
     torch.backends.cudnn.benchmark = True
 
 def main():
+    boolean_parse = lambda x: True if x in ('True', 'true', 'T', 't', '1') else False
     now = datetime.now(timezone('Asia/Seoul'))
     parser = argparse.ArgumentParser(description='basic Argparse')
-    parser.add_argument('--seed', type=int, default=42)  #시드
-    parser.add_argument('--annot', type=str, default='3')  #사용할 fold num (0~4)
-    parser.add_argument('--config_path', type=str)  #config 파일 경로
-    parser.add_argument('--resize', type=int, default=512)  #이미지 resize 크기
-    parser.add_argument('--epochs', type=int, default=10)  #epochs
-    parser.add_argument('--batch_size', type=int, default=4)  #batch size
-    parser.add_argument('--grad_clip', type=bool, default=True)  #gradient clip 사용 여부
-    parser.add_argument('--val', type=bool, default=True)  #val 수행 여부
-    parser.add_argument('--root_dir', type=str, default="/opt/ml/dataset/")  #dataset 폴더 경로
-    parser.add_argument('--ann_dir', type=str, default="/opt/ml/folded_anns/")  #train/val json 파일이 존재하는 위치
-    parser.add_argument('--work_dir', type=str, default='my_experiment')  #model.pth, log 등이 저장될 폴더 이름
-    parser.add_argument('--wdb_project', type=str)  #wandb 프로젝트 이름
+    parser.add_argument('--seed', type=int, default=42, help='시드')
+    parser.add_argument('--annot', type=str, default='3', help='사용할 fold num (0~4)')
+    parser.add_argument('--config_path', type=str, help='config 파일 경로')  #
+    parser.add_argument('--resize', type=int, default=512, help='이미지 resize 크기')  
+    parser.add_argument('--epochs', type=int, default=10, help='epochs')  
+    parser.add_argument('--batch_size', type=int, default=4, help='batch size')  
+    parser.add_argument('--grad_clip', type=boolean_parse, default=True, help='gradient clip 사용 여부')  
+    parser.add_argument('--val', type=boolean_parse, default=True, help='val 수행 여부')  
+    parser.add_argument('--root_dir', type=str, default="/opt/ml/dataset/", help='dataset 폴더 경로')  
+    parser.add_argument('--ann_dir', type=str, default="/opt/ml/folded_anns/", help='train/val json 파일이 존재하는 위치')  
+    parser.add_argument('--work_dir', type=str, default='my_experiment', help='model.pth, log 등이 저장될 폴더 이름')  
+    parser.add_argument('--wdb_project', type=str, help='wandb 프로젝트 이름')  
     parser.add_argument('--wdb_exp', type=str, default=f'{now.year}-{now.month}-{now.day}, {now.hour}:{now.minute}')  #wandb 실험 이름
     args = parser.parse_args()
 
@@ -91,7 +92,11 @@ def main():
 
     cfg.model.roi_head.bbox_head.num_classes = 10 # 모델의 헤드 개수변경
     
-    cfg.optimizer_config.grad_clip = dict(max_norm=35, norm_type=2) # gradient clipping(트레이닝 기법)
+    if args.grad_clip:
+        cfg.optimizer_config.grad_clip = dict(max_norm=35, norm_type=2) # gradient clipping(트레이닝 기법)
+    else:
+        cfg.optimizer_config.grad_clip = None
+            
     cfg.checkpoint_config = dict(max_keep_ckpts=3, interval=1) # 저장주기를 1로 하되 가장 높은 3개만 남긴다
     cfg.device = get_device()
 
