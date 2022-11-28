@@ -39,15 +39,7 @@ albu_train_transforms = [
                 p=1.0)
         ],
         p=0.8),
-    # dict(type='JpegCompression', quality_lower=85, quality_upper=95, p=0.2),
     dict(type='ChannelShuffle', p=0.8),
-    # dict(
-    #     type='OneOf',
-    #     transforms=[
-    #         dict(type='Blur', blur_limit=3, p=1.0),
-    #         dict(type='MedianBlur', blur_limit=3, p=1.0)
-    #     ],
-    #     p=0.5),
 ]
 
 
