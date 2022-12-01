@@ -140,7 +140,7 @@ annot_root = '/opt/bro/folded_anns/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
-    dict(type='Mosaic', img_scale=(512,512), pad_val=0),
+    dict(type='Mosaic', img_scale=(800, 800), pad_val=0),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(
         type='Normalize',
@@ -155,7 +155,7 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=(512,512),
+        img_scale=(800, 800),
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -171,7 +171,7 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=4,
+    samples_per_gpu=3,
     workers_per_gpu=2,
     train=dict(
         type='MultiImageMixDataset',
@@ -180,7 +180,7 @@ data = dict(
             classes=('General trash', 'Paper', 'Paper pack', 'Metal', 'Glass',
                      'Plastic', 'Styrofoam', 'Plastic bag', 'Battery',
                      'Clothing'),
-            ann_file='/opt/bro/folded_anns/train_3.json',
+            ann_file='/opt/bro/dataset/pseudo_train.json',
             img_prefix='/opt/bro/dataset/',
             pipeline=[
                 dict(type='LoadImageFromFile'),
@@ -188,7 +188,7 @@ data = dict(
             ],
             filter_empty_gt=False),
         pipeline=[
-            dict(type='Mosaic', img_scale=(512,512), pad_val=0),
+            dict(type='Mosaic', img_scale=(800, 800), pad_val=0),
             dict(type='RandomFlip', flip_ratio=0.5),
             dict(
                 type='Normalize',
@@ -207,7 +207,7 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(512,512),
+                img_scale=(800, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
@@ -233,7 +233,7 @@ data = dict(
             dict(type='LoadImageFromFile'),
             dict(
                 type='MultiScaleFlipAug',
-                img_scale=(512,512),
+                img_scale=(800, 800),
                 flip=False,
                 transforms=[
                     dict(type='Resize', keep_ratio=True),
@@ -272,7 +272,7 @@ log_config = dict(
             init_kwargs=dict(
                 project='brotherhoon',
                 entity='boostcamp_aitech4_jdp',
-                name='faster_rcnn_swin_fpn_adamw_mosaic'),
+                name='faster_rcnn_swinl_fpn_adamw_mosaic'),
             interval=10,
             log_checkpoint=True,
             log_checkpoint_metadata=True,
@@ -289,7 +289,7 @@ mp_start_method = 'fork'
 auto_scale_lr = dict(enable=False, base_batch_size=16)
 classes = ('General trash', 'Paper', 'Paper pack', 'Metal', 'Glass', 'Plastic',
            'Styrofoam', 'Plastic bag', 'Battery', 'Clothing')
-img_scale = (512, 512)
+img_scale = (800, 800)
 train_dataset = dict(
     _delete_=True,
     type='MultiImageMixDataset',
@@ -297,7 +297,7 @@ train_dataset = dict(
         type='CocoDataset',
         classes=('General trash', 'Paper', 'Paper pack', 'Metal', 'Glass',
                  'Plastic', 'Styrofoam', 'Plastic bag', 'Battery', 'Clothing'),
-        ann_file='/opt/bro/folded_anns/train_3.json',
+        ann_file='/opt/bro/dataset/pseudo_train.json',
         img_prefix='/opt/bro/dataset/',
         pipeline=[
             dict(type='LoadImageFromFile'),
@@ -305,7 +305,7 @@ train_dataset = dict(
         ],
         filter_empty_gt=False),
     pipeline=[
-        dict(type='Mosaic', img_scale=(512,512), pad_val=0),
+        dict(type='Mosaic', img_scale=(800, 800), pad_val=0),
         dict(type='RandomFlip', flip_ratio=0.5),
         dict(
             type='Normalize',
@@ -318,5 +318,5 @@ train_dataset = dict(
     ])
 seed = 42
 gpu_ids = [0]
-work_dir = '/opt/bro/workspace/work_dirs/faster_rcnn_swin_fpn_adamw_mosaic'
+work_dir = '/opt/bro/workspace/work_dirs/faster_rcnn_swinl_fpn_adamw_mosaic'
 device = 'cuda'
