@@ -1,0 +1,47 @@
+YOLOR 🚀 v0.1-115-g072f76c torch 1.7.1 CUDA:0 (Tesla V100-PCIE-32GB, 32510.5MB)
+
+Namespace(adam=False, artifact_alias='latest', batch_size=7, bbox_interval=-1, bucket='', cache_images=False, cfg='/opt/ml/yolov7/cfg/training/yolov7-e6e.yaml', data='data/coco.yaml', device='0', entity='YOLOR', epochs=10, evolve=False, exist_ok=False, global_rank=-1, hyp='data/hyp.scratch.p6.yaml', image_weights=False, img_size=[1280, 1280], label_smoothing=0.0, linear_lr=False, local_rank=-1, multi_scale=False, name='yolov7-e6e_pseudo_resume', noautoanchor=False, nosave=False, notest=False, project='runs/train', quad=False, rect=False, resume=False, save_dir='runs/train/yolov7-e6e_pseudo_resume3', save_period=-1, single_cls=False, sync_bn=False, total_batch_size=7, upload_dataset=False, v5_metric=False, weights='./weights/yolov7_e6e_pseudo_epoch_024.pt', workers=8, world_size=1)
+[34m[1mtensorboard: [0mStart with 'tensorboard --logdir runs/train', view at http://localhost:6006/
+[34m[1mhyperparameters: [0mlr0=0.01, lrf=0.2, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=0.05, cls=0.3, cls_pw=1.0, obj=0.7, obj_pw=1.0, iou_t=0.2, anchor_t=4.0, fl_gamma=0.0, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.2, scale=0.9, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, mosaic=1.0, mixup=0.15, copy_paste=0.0, paste_in=0.15, loss_ota=1
+wandb: Currently logged in as: qwer55252 (boostcamp_aitech4_jdp). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.5
+wandb: Run data is saved locally in /opt/ml/yolov7/wandb/run-20221130_195956-3tr3eyn4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run yolov7-e6e_pseudo_resume3
+wandb: ⭐️ View project at https://wandb.ai/boostcamp_aitech4_jdp/YOLOR
+wandb: 🚀 View run at https://wandb.ai/boostcamp_aitech4_jdp/YOLOR/runs/3tr3eyn4
+wandb: ERROR Attempted to change value of key "opt" from {'cfg': '/opt/ml/yolov7/cfg/training/yolov7-e6e.yaml', 'hyp': {'box': 0.05, 'cls': 0.3, 'lr0': 0.01, 'lrf': 0.2, 'obj': 0.7, 'hsv_h': 0.015, 'hsv_s': 0.7, 'hsv_v': 0.4, 'iou_t': 0.2, 'mixup': 0.15, 'scale': 0.9, 'shear': 0, 'cls_pw': 1, 'fliplr': 0.5, 'flipud': 0, 'mosaic': 1, 'obj_pw': 1, 'degrees': 0, 'anchor_t': 4, 'fl_gamma': 0, 'loss_ota': 1, 'momentum': 0.937, 'paste_in': 0.15, 'translate': 0.2, 'copy_paste': 0, 'perspective': 0, 'weight_decay': 0.0005, 'warmup_epochs': 3, 'warmup_bias_lr': 0.1, 'warmup_momentum': 0.8}, 'adam': False, 'data': 'data/coco.yaml', 'name': 'yolov7-e6e_pseudo', 'quad': False, 'rect': False, 'bucket': '', 'device': '0', 'entity': None, 'epochs': 25, 'evolve': False, 'nosave': False, 'notest': False, 'resume': False, 'project': 'runs/train', 'sync_bn': False, 'weights': './weights/yolov7-e6e.pt', 'workers': 8, 'exist_ok': False, 'img_size': [1280, 1280], 'save_dir': 'runs/train/yolov7-e6e_pseudo', 'linear_lr': False, 'v5_metric': False, 'batch_size': 7, 'local_rank': -1, 'single_cls': False, 'world_size': 1, 'global_rank': -1, 'multi_scale': False, 'save_period': -1, 'cache_images': False, 'noautoanchor': False, 'bbox_interval': -1, 'image_weights': False, 'artifact_alias': 'latest', 'upload_dataset': False, 'label_smoothing': 0, 'total_batch_size': 7} to {'weights': './weights/yolov7_e6e_pseudo_epoch_024.pt', 'cfg': '/opt/ml/yolov7/cfg/training/yolov7-e6e.yaml', 'data': 'data/coco.yaml', 'hyp': {'lr0': 0.01, 'lrf': 0.2, 'momentum': 0.937, 'weight_decay': 0.0005, 'warmup_epochs': 3.0, 'warmup_momentum': 0.8, 'warmup_bias_lr': 0.1, 'box': 0.05, 'cls': 0.3, 'cls_pw': 1.0, 'obj': 0.7, 'obj_pw': 1.0, 'iou_t': 0.2, 'anchor_t': 4.0, 'fl_gamma': 0.0, 'hsv_h': 0.015, 'hsv_s': 0.7, 'hsv_v': 0.4, 'degrees': 0.0, 'translate': 0.2, 'scale': 0.9, 'shear': 0.0, 'perspective': 0.0, 'flipud': 0.0, 'fliplr': 0.5, 'mosaic': 1.0, 'mixup': 0.15, 'copy_paste': 0.0, 'paste_in': 0.15, 'loss_ota': 1}, 'epochs': 10, 'batch_size': 7, 'img_size': [1280, 1280], 'rect': False, 'resume': False, 'nosave': False, 'notest': False, 'noautoanchor': False, 'evolve': False, 'bucket': '', 'cache_images': False, 'image_weights': False, 'device': '0', 'multi_scale': False, 'single_cls': False, 'adam': False, 'sync_bn': False, 'local_rank': -1, 'workers': 8, 'project': 'runs/train', 'entity': 'YOLOR', 'name': 'yolov7-e6e_pseudo_resume', 'exist_ok': False, 'quad': False, 'linear_lr': False, 'label_smoothing': 0.0, 'upload_dataset': False, 'bbox_interval': -1, 'save_period': -1, 'artifact_alias': 'latest', 'v5_metric': False, 'world_size': 1, 'global_rank': -1, 'save_dir': 'runs/train/yolov7-e6e_pseudo_resume3', 'total_batch_size': 7}
+wandb: ERROR If you really want to do this, pass allow_val_change=True to config.update()
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run summary:
+wandb:      metrics/mAP_0.5 0.86368
+wandb: metrics/mAP_0.5:0.95 0.75627
+wandb:    metrics/precision 0.87779
+wandb:       metrics/recall 0.77818
+wandb:       train/box_loss 0.02273
+wandb:       train/cls_loss 0.01024
+wandb:       train/obj_loss 0.02448
+wandb:         val/box_loss 0.01835
+wandb:         val/cls_loss 0.00731
+wandb:         val/obj_loss 0.0141
+wandb:                x/lr0 0.00213
+wandb:                x/lr1 0.00213
+wandb:                x/lr2 0.00213
+wandb: 
+wandb: Synced yolov7-e6e_pseudo_resume3: https://wandb.ai/boostcamp_aitech4_jdp/YOLOR/runs/3tr3eyn4
+wandb: Synced 3 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20221130_195956-3tr3eyn4/logs
+Traceback (most recent call last):
+  File "train_aux.py", line 612, in <module>
+    train(hyp, opt, device, tb_writer)
+  File "train_aux.py", line 72, in train
+    wandb_logger = WandbLogger(opt, Path(opt.save_dir).stem, run_id, data_dict)
+  File "/opt/ml/yolov7/utils/wandb_logging/wandb_utils.py", line 106, in __init__
+    self.wandb_run.config.opt = vars(opt)
+  File "/opt/conda/envs/detection/lib/python3.7/site-packages/wandb/sdk/wandb_config.py", line 146, in __setitem__
+    key, val = self._sanitize(key, val)
+  File "/opt/conda/envs/detection/lib/python3.7/site-packages/wandb/sdk/wandb_config.py", line 264, in _sanitize
+    ).format(key, self._items[key], val)
+wandb.sdk.lib.config_util.ConfigError: Attempted to change value of key "opt" from {'cfg': '/opt/ml/yolov7/cfg/training/yolov7-e6e.yaml', 'hyp': {'box': 0.05, 'cls': 0.3, 'lr0': 0.01, 'lrf': 0.2, 'obj': 0.7, 'hsv_h': 0.015, 'hsv_s': 0.7, 'hsv_v': 0.4, 'iou_t': 0.2, 'mixup': 0.15, 'scale': 0.9, 'shear': 0, 'cls_pw': 1, 'fliplr': 0.5, 'flipud': 0, 'mosaic': 1, 'obj_pw': 1, 'degrees': 0, 'anchor_t': 4, 'fl_gamma': 0, 'loss_ota': 1, 'momentum': 0.937, 'paste_in': 0.15, 'translate': 0.2, 'copy_paste': 0, 'perspective': 0, 'weight_decay': 0.0005, 'warmup_epochs': 3, 'warmup_bias_lr': 0.1, 'warmup_momentum': 0.8}, 'adam': False, 'data': 'data/coco.yaml', 'name': 'yolov7-e6e_pseudo', 'quad': False, 'rect': False, 'bucket': '', 'device': '0', 'entity': None, 'epochs': 25, 'evolve': False, 'nosave': False, 'notest': False, 'resume': False, 'project': 'runs/train', 'sync_bn': False, 'weights': './weights/yolov7-e6e.pt', 'workers': 8, 'exist_ok': False, 'img_size': [1280, 1280], 'save_dir': 'runs/train/yolov7-e6e_pseudo', 'linear_lr': False, 'v5_metric': False, 'batch_size': 7, 'local_rank': -1, 'single_cls': False, 'world_size': 1, 'global_rank': -1, 'multi_scale': False, 'save_period': -1, 'cache_images': False, 'noautoanchor': False, 'bbox_interval': -1, 'image_weights': False, 'artifact_alias': 'latest', 'upload_dataset': False, 'label_smoothing': 0, 'total_batch_size': 7} to {'weights': './weights/yolov7_e6e_pseudo_epoch_024.pt', 'cfg': '/opt/ml/yolov7/cfg/training/yolov7-e6e.yaml', 'data': 'data/coco.yaml', 'hyp': {'lr0': 0.01, 'lrf': 0.2, 'momentum': 0.937, 'weight_decay': 0.0005, 'warmup_epochs': 3.0, 'warmup_momentum': 0.8, 'warmup_bias_lr': 0.1, 'box': 0.05, 'cls': 0.3, 'cls_pw': 1.0, 'obj': 0.7, 'obj_pw': 1.0, 'iou_t': 0.2, 'anchor_t': 4.0, 'fl_gamma': 0.0, 'hsv_h': 0.015, 'hsv_s': 0.7, 'hsv_v': 0.4, 'degrees': 0.0, 'translate': 0.2, 'scale': 0.9, 'shear': 0.0, 'perspective': 0.0, 'flipud': 0.0, 'fliplr': 0.5, 'mosaic': 1.0, 'mixup': 0.15, 'copy_paste': 0.0, 'paste_in': 0.15, 'loss_ota': 1}, 'epochs': 10, 'batch_size': 7, 'img_size': [1280, 1280], 'rect': False, 'resume': False, 'nosave': False, 'notest': False, 'noautoanchor': False, 'evolve': False, 'bucket': '', 'cache_images': False, 'image_weights': False, 'device': '0', 'multi_scale': False, 'single_cls': False, 'adam': False, 'sync_bn': False, 'local_rank': -1, 'workers': 8, 'project': 'runs/train', 'entity': 'YOLOR', 'name': 'yolov7-e6e_pseudo_resume', 'exist_ok': False, 'quad': False, 'linear_lr': False, 'label_smoothing': 0.0, 'upload_dataset': False, 'bbox_interval': -1, 'save_period': -1, 'artifact_alias': 'latest', 'v5_metric': False, 'world_size': 1, 'global_rank': -1, 'save_dir': 'runs/train/yolov7-e6e_pseudo_resume3', 'total_batch_size': 7}
+If you really want to do this, pass allow_val_change=True to config.update()
