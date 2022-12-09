@@ -1,7 +1,7 @@
-#Detector
-##2-Stage
-###Faster R-CNN vs Cascade R-CNN
-####가설
+# Detector
+## 2-Stage
+### Faster R-CNN vs Cascade R-CNN
+#### 가설
 Faster R-CNN 모델의 문제점을 지적하고 이를 개선한 모델인 Cascade R-CNN 모델이 더 나은 Detector일 것이다 라고 예상하고 가설을 세움
 >🔍 **casecade 간단 리뷰**
 >Faster R-CNN 의 과정을 간단하게 살펴보자. 
@@ -17,10 +17,10 @@ Faster R-CNN 모델의 문제점을 지적하고 이를 개선한 모델인 Casc
 >참고
 [https://blog.lunit.io/2018/08/13/cascade-r-cnn-delving-into-high-quality-object-detection/](https://blog.lunit.io/2018/08/13/cascade-r-cnn-delving-into-high-quality-object-detection/)
 
-####실험 결과
+#### 실험 결과
 ![Untitled](images/Untitled%2010.png)
 
-####결과 분석
+#### 결과 분석
 - Cascade R-CNN 모델이 Classifier를 3개 사용하는 만큼 Bbox mAP 성능이 대체적으로 더 좋았다.
 - 유일하게 작은 물체에 대한 성능은 Faster R-CNN 이 더 나았는데, mAP_m, mAP_l 수치에 비해 너무 작은 수치여서 무시하기로 했다.
 - 한가지 의문점은 mAP_m, mAP_l 의 성능은 Cascade R-CNN 모델이 더 좋은데, mAP_50에서의 성능은 비슷한 것이 의문인데,,, Cascade R-CNN 모든 classifier에 IoU를 0.5로 설정했을 때의 성능이 아닐까? 라는 생각이 든다.

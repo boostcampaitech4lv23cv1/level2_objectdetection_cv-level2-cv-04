@@ -1,6 +1,6 @@
 # Pseudo Labeling
 
-가설
+#### 가설
 
 우리는 단일 모델로 underfitting을 개선하기 위해서는 dataset을 추가적으로 확보해야 할 필요성을 느낌.
 pseudo labeling을 통해 train 데이터셋의 숫자를 4,882개에서 9,753개로 증가시킨다면(이미지 기준)
@@ -13,30 +13,30 @@ submission.csv의 object detection 결과 중 confidence score를  0.5 threshold
 
 필터링한 결과 만들어진 pseudo label의 시각화 결과는 다음과 같음.
 
-![[이미지] 쉐도 라벨링된 test dataset의 라벨링 시각화 결과](./readme_img/Untitled.png)
+![[이미지] 쉐도 라벨링된 test dataset의 라벨링 시각화 결과](./images/Untitled.png)
 
 [이미지] 쉐도 라벨링된 test dataset의 라벨링 시각화 결과
 
-실험 결과
+#### 실험 결과
 
 pseudo label dataset이 추가된 실험결과는 다음과 같음.
 (pseudo label을 추가한 실험의 경우 validation score가 없어 test score만 사용함.
 또한  대조군과 다르게 이미지 사이즈를 800,800으로 실험 진행함)
 
-![[표] trainset과 pseudo label set을 training한 모델의 성능차이](./readme_img/Untitled%201.png)
+![[표] trainset과 pseudo label set을 training한 모델의 성능차이](./images/Untitled%201.png)
 
 [표] trainset과 pseudo label set을 training한 모델의 성능차이
 
-![Untitled](./readme_img/Untitled%202.png)
+![Untitled](./images/Untitled%202.png)
 
-![Untitled](./readme_img/Untitled%203.png)
+![Untitled](./images/Untitled%203.png)
 
 | Model | Pseudo labeling | Test mAP |
 | --- | --- | --- |
 | YOLOv7-E6E | ⭕️ | 0.6480 |
 | YOLOv7-E6E | ❌ | 0.6188 |
 
-결과 분석
+#### 결과 분석
 
 pseudo label 적용 후 대조군 비교하여 - 0.037의 성능감소를 보임.
 
