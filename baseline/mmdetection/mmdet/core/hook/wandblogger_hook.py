@@ -376,7 +376,8 @@ class MMDetWandbHook(WandbLoggerHook):
             wandb_boxes = self._get_wandb_bboxes(bboxes, labels)
 
             # Get dict of masks to be logged.
-            if masks is not None:
+            ############################################## modify ↓
+            if False:
                 wandb_masks = self._get_wandb_masks(
                     masks,
                     labels,
@@ -531,9 +532,13 @@ class MMDetWandbHook(WandbLoggerHook):
         for mask, label in zip(masks, labels):
             label = label + 1
             # Get bitmap mask from polygon.
+            
             if is_poly_mask:
                 if height is not None and width is not None:
-                    mask = polygon_to_bitmap(mask, height, width)
+                    ############################################## modify ↓
+                    pass 
+                    # mask = polygon_to_bitmap(mask, height, width)
+            
             # Create composite masks for each class.
             if label not in mask_label_dict.keys():
                 mask_label_dict[label] = mask
